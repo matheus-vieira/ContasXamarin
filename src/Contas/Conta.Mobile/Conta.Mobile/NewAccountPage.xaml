@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Conta.Mobile.NewAccountPage"
+             Title="New Account"
+             Appearing="NewAccount_Appearing">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Logout" Clicked="OnLogoutButtonClicked" />
+        <ToolbarItem Text="Back" Clicked="OnBackButtonClicked" />
+        <ToolbarItem Text="Save" Clicked="OnSaveButtonClicked" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout VerticalOptions="StartAndExpand">
+                <Label Text="Billing type" />
+                <Picker x:Name="billingTypeEntry" />
+                <Label Text="Account category" />
+                <Picker x:Name="accountCategoryEntry" />
+                <Label Text="Responsibility Center" />
+                <Picker x:Name="responsabilityCenterEntry" />
+                <Label Text="Bank Account" />
+                <Picker x:Name="bankAccountEntry" />
+                <Label Text="Due Date" />
+                <DatePicker x:Name="dueDateEntry" />
+                <Label Text="Payment Date" />
+                <DatePicker x:Name="paymentDateEntry" />
+                <Label Text="Historic" />
+                <Entry x:Name="historicEntry" Placeholder="Account title" />
+                <Label Text="Amount" />
+                <Entry x:Name="amountEntry" Placeholder="Account amout" Keyboard="Numeric" />
+                <Label Text="Amount Paid" />
+                <Entry x:Name="amountPaidEntry" Placeholder="Ammount paid" Keyboard="Numeric" />
+                <Label Text="Discount" />
+                <Entry x:Name="discountEntry" Placeholder="Discount" Keyboard="Numeric" />
+                <Label Text="Penalty" />
+                <Entry x:Name="penaltyEntry" Placeholder="Penalty" Keyboard="Numeric" />
+                <Label Text="Status" />
+                <Picker x:Name="statusEntry" />
+                <ActivityIndicator x:Name="newAccountActivityIndicator" />
+                <Button Text="Save" Clicked="OnSaveButtonClicked" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Conta.Mobile"
+             x:Class="Conta.Mobile.MainPage"
+             Title="Account Statement">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Logout" Clicked="OnLogoutButtonClicked" />
+        <ToolbarItem Text="New Account" Clicked="OnNovaContaButtonClicked" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="StartAndExpand">
+            <Label Text="Date" />
+            <DatePicker x:Name="dateEntry" />
+            <Button Text="Filter" Clicked="OnFilterButtonClicked" />
+            <ActivityIndicator x:Name="contasActivityIndicator" IsVisible="False" />
+            <StackLayout  x:Name="result" IsVisible="False">
+                <StackLayout HorizontalOptions="CenterAndExpand">
+                    <Label Text="Financial Summaries" FontSize="Large" />
+                </StackLayout>
+                <ScrollView>
+                    <StackLayout VerticalOptions="StartAndExpand">
+                        <StackLayout HorizontalOptions="StartAndExpand">
+                            <Label Text="Previous Balance" x:Name="previousBalanceValue" />
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="StartAndExpand">
+                            <Label Text="Current Balance" x:Name="currentBalance" />
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="StartAndExpand">
+                            <Label Text="Accounts Receivable" x:Name="accountsReceivable" />
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="StartAndExpand">
+                            <Label Text="Accounts Receivable" x:Name="accountsPayable" />
+                        </StackLayout>
+                    </StackLayout>
+                </ScrollView>
+                <StackLayout HorizontalOptions="CenterAndExpand">
+                    <Label Text="Accounts" FontSize="Large" />
+                </StackLayout>
+                <ListView x:Name="accountsListView" HasUnevenRows="true">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="15, 5, 5, 5" HorizontalOptions="StartAndExpand" Orientation="Vertical">
+                                    <Label Text="{Binding Description, StringFormat='Historic: {0}'}" />
+                                    <Label Text="{Binding GrossValue, StringFormat='Amount:{0:C}'}" />
+                                    <Label Text="{Binding NetValue, StringFormat='Amount Paid: {0:C}'}" />
+                                    <Label Text="{Binding DiscountValue, StringFormat='Discount: {0:C}'}" />
+                                    <Label Text="{Binding PenaltyValue, StringFormat='Penalty {0:C}'}" />
+                                    <Label Text="{Binding StatusText, StringFormat='Status: {0}'}" FontSize="Small" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
